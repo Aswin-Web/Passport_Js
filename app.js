@@ -10,7 +10,7 @@ const app = express()
 const cookieSession = require('cookie-session')
 const { serializeUser } = require('passport')
 require('./passport-google')
-
+// This cookie is generated in the Client side
 app.use(
   cookieSession({
     name: 'node_app',
@@ -21,6 +21,7 @@ app.use(
 app.use(helmet())
 // initialize an session
 app.use(passport.initialize())
+// To store session
 app.use(passport.session())
 
 app.set('view engine', 'ejs')
@@ -32,7 +33,7 @@ app.get(
     scope: ['profile', 'email']
   })
 )
-
+// if login is true the response of the profile
 app.get(
   '/cb',
   passport.authenticate('google', {
@@ -53,7 +54,7 @@ app.get('/failure', (req, res) => {
 app.get(
   '/home',
   (req, res, next) => {
-    console.log(req.user.id)
+    console.log(req.user.id)  // This value is from the deserializeUser()
     return next()
   },
   (req, res) => {
@@ -62,7 +63,7 @@ app.get(
 )
 
 app.get("/logout",(req,res)=>{
-  req.logout()
+  req.logout() //Passport logging out functions
   res.send("logged out  ")
 })
 

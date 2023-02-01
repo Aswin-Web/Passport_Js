@@ -7,10 +7,12 @@ const CLIENT_ID='2971i0470h..com'
 const CLIENT_SECRET=''
 
 passport.serializeUser((user , done) => {
+  // This is used to set the cookie
   console.log(user)
     done(null , user);
     })
 passport.deserializeUser(function(user, done) {
+  // This is used to access th cookie
   console.log(user);  
   done(null, user);
     });
