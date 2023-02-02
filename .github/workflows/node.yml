@@ -8,7 +8,7 @@ on:
     branches : [main] 
 
 jobs:
-    build:
+  build:
     runs_on : ubuntu_latest
     steps:
       - uses : actions/checkout@v2
