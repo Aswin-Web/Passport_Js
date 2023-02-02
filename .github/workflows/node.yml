@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on : ubuntu-latest
     steps:
-      - uses : actions/checkout@v2
-      - name : uses NODE version 16
-      - uses : actions/setup-node@v2
-        with :
+      - uses: actions/checkout@v2
+      - name: uses NODE version 16
+      - uses: actions/setup-node@v2
+        with:
            node-version : '16'
-      - run : npm install
-      - run : npm start    
+      - run: npm install
+      - run: npm start    
