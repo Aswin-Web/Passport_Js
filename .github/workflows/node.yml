@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs_on : ubuntu_latest
+    runs-on : ubuntu-latest
     steps:
       - uses : actions/checkout@v2
       - name : uses NODE version 16
